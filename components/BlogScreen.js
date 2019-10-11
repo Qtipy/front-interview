@@ -19,7 +19,12 @@ getPosts = () => {
       return response.json();
     })
     .then((data) => {
-      this.setState({posts: data}, () => {console.log('data:',this.state.posts)});
+      this.setState({posts: data}, () => {
+          // Callback to sort the array
+        this.state.posts.sort(function(a,b){
+            return new Date(b.date) - new Date(a.date);
+          });
+      });
     })
   }
   
@@ -40,7 +45,7 @@ getPosts = () => {
                         <h5>{item.title.substr(0, 100)}</h5>
                         <p>{item.text}</p>
                         <img src={apiUri + item.src}/>
-                        {item.date && <p>{item.date}</p>}
+                        {item.date && <p><em>{item.date}</em></p>}
                     <hr/>
 
                 </React.Fragment>
