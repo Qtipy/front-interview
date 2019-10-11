@@ -29,17 +29,7 @@ getPosts = () => {
     })
   }
 
-//   handleInputChange = () => {
-//     this.setState({
-//       search: this.search.value
-//     }, () => { 
-//         console.log('search: ',this.state.search);
-//     })
-//   }
-
   handleSearch = name => event => {
-
-    event.preventDefault();
 
     this.setState({ [name]: event.target.value });
   };
