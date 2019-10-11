@@ -31,11 +31,11 @@ getPosts = () => {
 
     return (
         <React.Fragment>
-            <h1 data-testid="page-title">BlogScreen</h1>
+            <h1>BlogScreen</h1>
 
             <ol>
             {this.state.posts.map((item, index) => (
-            <li>{item.title.substr(0, 100)}</li>
+            <span key={index}><li>{item.title.substr(0, 100)}</li></span>
             ))}
             </ol>
         </React.Fragment>
