@@ -35,7 +35,9 @@ getPosts = () => {
 
             <ol>
             {this.state.posts.map((item, index) => (
-            <span key={index}><li>{item.title.substr(0, 100)}</li></span>
+                <React.Fragment  key={index}>
+                    <li>{item.title.substr(0, 100)}</li>
+                </React.Fragment>
             ))}
             </ol>
         </React.Fragment>
