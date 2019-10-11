@@ -69,6 +69,15 @@ getPosts = () => {
 
                 </React.Fragment>
             ))}
+
+
+            <p>I haven't enough time to finish the test but there are some ideas to implement later:</p>
+            <ul>
+                <li>Title of posts should be cut from 10 words or another limit,  if not title could be too long</li>
+                <li>Same for the post description, fix a limit to cut and add a link to see more</li>
+                <li>A button to scroll down or up can facilitate navigation</li>
+            </ul>
+
         </React.Fragment>
     );
   }
