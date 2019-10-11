@@ -29,17 +29,22 @@ getPosts = () => {
 
   render = () => {
 
+    const apiUri= "https://upply-interview.herokuapp.com/images/";
+
     return (
         <React.Fragment>
             <h1>BlogScreen</h1>
 
-            <ol>
             {this.state.posts.map((item, index) => (
                 <React.Fragment  key={index}>
-                    <li>{item.title.substr(0, 100)}</li>
+                        <h5>{item.title.substr(0, 100)}</h5>
+                        <p>{item.text}</p>
+                        <img src={apiUri + item.src}/>
+                        {item.date && <p>{item.date}</p>}
+                    <hr/>
+
                 </React.Fragment>
             ))}
-            </ol>
         </React.Fragment>
     );
   }
