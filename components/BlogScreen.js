@@ -5,6 +5,10 @@ class BlogScreen extends React.Component {
 
 constructor(props) {
   super(props);
+
+  this.state = {
+    posts: [],
+  };
 }
 
 
@@ -26,7 +30,15 @@ getPosts = () => {
   render = () => {
 
     return (
-        <h1 data-testid="page-title">BlogScreen</h1>
+        <React.Fragment>
+            <h1 data-testid="page-title">BlogScreen</h1>
+
+            <ol>
+            {this.state.posts.map((item, index) => (
+            <li>{item.title.substr(0, 100)}</li>
+            ))}
+            </ol>
+        </React.Fragment>
     );
   }
 }
