@@ -8,6 +8,7 @@ constructor(props) {
 
   this.state = {
     posts: [],
+    search: '',
   };
 }
 
@@ -27,6 +28,27 @@ getPosts = () => {
       });
     })
   }
+
+//   handleInputChange = () => {
+//     this.setState({
+//       search: this.search.value
+//     }, () => { 
+//         console.log('search: ',this.state.search);
+//     })
+//   }
+
+  handleSearch = name => event => {
+
+    event.preventDefault();
+
+    this.setState({ [name]: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    console.log('submit');
+  }
   
   componentDidMount = () => {
     this.getPosts();
@@ -36,9 +58,16 @@ getPosts = () => {
 
     const apiUri= "https://upply-interview.herokuapp.com/images/";
 
+    console.log(this.state.search);
+
     return (
         <React.Fragment>
             <h1>BlogScreen</h1>
+            
+            <form onSubmit={this.handleSubmit}>
+                <input type="text" id="search" name="search" minLength="3" maxLength="8"
+                size="30" placeholder="Search" onChange={this.handleSearch('search')}/>
+            </form>
 
             {this.state.posts.map((item, index) => (
                 <React.Fragment  key={index}>
